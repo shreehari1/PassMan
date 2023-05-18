@@ -3,17 +3,18 @@ from flask import Blueprint, render_template, request, flash
 
 auth = Blueprint('auth', '__name__')
 
-@auth.route('/login', methods= ['GET', 'POST'])
+@auth.route('/login', methods= [ 'GET','POST'])
 def login():
-    data = request.form
-    print(data)
+    if request.method == "POST":
+        username = request.form.get('username')
+        password = request.form.get('password')
     return render_template("login.html")
 
 @auth.route('/totp')
 def totp():
     return render_template("totp.html")
 
-@auth.route('/signup', methods= ['GET', 'POST'])
+@auth.route('/signup', methods= ['GET','POST'])
 def signup():
     errorMessages = {
         "field": "",
