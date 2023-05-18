@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pico-master/css/pico.min.css') }}">
+    <title>{% block title %} Home {% endblock %}</title>
+  </head>
+  <body>
+      <nav class="container-fluid">
+        <ul>
+          <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong><kbd>PassMan</kbd></strong></a></li>
+        </ul>
+        <ul>
+            <li><a href="../signup">Sign Up</a></li>
+        </ul>
+      </nav>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if category,message in messages %}
+        {% for message in messages %}
+            <article class="container-fluid">
+                <p><ins>{{ message,category }}</ins></p>
+            </article>
+        {% endfor %}
+      {% endif %}
+      {% endwith %}
+
+      {% block content %}
+      {% endblock %}
+
+
+  </body>
+</html>
+
+
+
+
+

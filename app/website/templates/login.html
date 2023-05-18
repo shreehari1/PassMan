@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <main class="container">
+        <article class="grid">
+          <div>
+            <hgroup>
+              <h1>Login</h1>
+              <h2>Login to PassMan</h2>
+            </hgroup>
+            <form method = "POST">
+              <input type="text" name="login" placeholder="Login" aria-label="Login" autocomplete="nickname" required>
+              <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+              <fieldset>
+                <label for="remember">
+                  <input type="checkbox" role="switch" id="remember" name="remember">
+                  Remember me
+                </label>
+              </fieldset>
+              <button type="submit">Login</button>
+            </form>
+          </div>
+          <div>
+            <img src="static/bitwarden.png" alt="temp">
+          </div>
+        </article>
+      </main>
+{% endblock %}

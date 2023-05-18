@@ -1,0 +1,6 @@
+  <script
+          type="text/css"
+          src="{{ url_for('static', filename ='pico-master/css/pico.min.css')}}"
+  ></script>
+
+
