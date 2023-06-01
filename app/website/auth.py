@@ -8,6 +8,7 @@ def login():
     if request.method == "POST":
         username = request.form.get('username')
         password = request.form.get('password')
+        # check user in DB
     return render_template("login.html")
 
 @auth.route('/totp')
@@ -39,7 +40,7 @@ def signup():
             errorMessages["field"] = "password1"
             errorMessages["message"] = "Password must be greater in length"
         else:
-            # add user to db
+            # add user to DB and logout
             pass
 
     return render_template("sign-up.html", errormsg=errorMessages)
