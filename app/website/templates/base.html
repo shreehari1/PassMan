@@ -9,21 +9,18 @@
   <body>
       <nav class="container-fluid">
         <ul>
-          <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong><kbd>PassMan</kbd></strong></a></li>
+          <li><a href="../" class="contrast"><strong><kbd>PassMan</kbd></strong></a></li>
         </ul>
         <ul>
+            {% if user.is_authenticated %}
+            <li><a href="../">Home</a></li>
+            <li><a href="../logout">Logout</a></li>
+            {% else %}
+            <li><a href="../login">Login</a></li>
             <li><a href="../signup">Sign Up</a></li>
+            {% endif %}
         </ul>
       </nav>
-      {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if category,message in messages %}
-        {% for message in messages %}
-            <article class="container-fluid">
-                <p><ins>{{ message,category }}</ins></p>
-            </article>
-        {% endfor %}
-      {% endif %}
-      {% endwith %}
 
       {% block content %}
       {% endblock %}

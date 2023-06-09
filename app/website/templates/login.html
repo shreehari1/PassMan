@@ -10,7 +10,8 @@
               <h2>Login to PassMan</h2>
             </hgroup>
             <form method = "POST">
-              <input type="text" name="username" placeholder="Email/Username" aria-label="Login" autocomplete="nickname" required>
+              <input type="text" name="email" placeholder="Email address" {% if errormsg %} aria-invalid="true" {% endif %} aria-label="Name" required>
+              {% if errormsg %} <small><mark>{{ errormsg }}</mark></small> {% endif %}
               <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
               <fieldset>
                 <label for="remember">
